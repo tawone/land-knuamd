@@ -6,54 +6,53 @@
   <title>Community - knuamd.com</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Inter, sans-serif; background: #0f172a; color: #fff; }
-    .hero { min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-    .badge { display: inline-block; padding: 0.5rem 1.5rem; border-radius: 9999px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; font-size: 0.875rem; margin-bottom: 2rem; }
-    h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; }
-    h1 span { background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    p { color: #94a3b8; font-size: 1.25rem; margin-bottom: 2rem; }
-    .btn { display: inline-block; padding: 1rem 2.5rem; border-radius: 0.75rem; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #f59e0b, #f97316); color: #fff; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; max-width: 800px; }
-    .feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem; text-align: left; }
-    .feature h3 { margin-bottom: 0.5rem; }
-    .feature p { font-size: 0.875rem; margin-bottom: 0; }
-    .emoji { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-    nav a.logo { font-size: 1.25rem; font-weight: 800; background: linear-gradient(135deg, #f472b6, #facc15); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-    nav a.back { color: #94a3b8; text-decoration: none; font-size: 0.875rem; }
-    footer { text-align: center; padding: 2rem; color: #475569; font-size: 0.875rem; border-top: 1px solid rgba(255,255,255,0.05); }
-    footer strong { color: #fff; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#000;color:#fff}
+    .frame{max-width:min(430px,85vw);min-height:100vh;margin:0 auto;background:#0f172a;overflow-x:hidden;padding-bottom:4.5rem;position:relative}
+    @media(min-width:1024px){body{display:flex;align-items:flex-start;justify-content:center}.frame{border-radius:1.5rem;margin:1rem auto;min-height:calc(100vh - 2rem);box-shadow:0 25px 50px -12px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1)}}
+    .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:min(430px,85vw);z-index:50}
+    .bottom-nav-inner{background:rgba(0,0,0,.8);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-around;padding:.5rem 0;padding-bottom:max(.5rem,env(safe-area-inset-bottom))}
+    .nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;cursor:pointer;padding:.25rem .75rem;border-radius:.5rem;transition:all .2s;min-width:52px;color:rgba(255,255,255,.4);text-decoration:none;font-family:Inter,sans-serif}
+    .nav-item.active{color:#fb923c}
+    .nav-item:hover{color:rgba(255,255,255,.6)}
+    .nav-icon{width:20px;height:20px}
+    .nav-label{font-size:10px;font-weight:500}
+    .hero{text-align:center;padding:3rem 1rem 1.5rem}
+    .badge{display:inline-block;padding:.375rem 1rem;border-radius:9999px;background:rgba(251,146,60,.15);border:1px solid rgba(251,146,60,.3);color:#fb923c;font-size:.75rem}
+    h1{font-size:2rem;font-weight:800;margin:.75rem 0}
+    h1 span{background:linear-gradient(135deg,#fb923c,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .subtitle{color:#94a3b8;font-size:.875rem;margin-bottom:1.5rem}
+    .btn{display:inline-block;padding:.75rem 2rem;border-radius:.75rem;font-weight:600;text-decoration:none;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;font-size:.875rem}
+    .features{display:grid;grid-template-columns:1fr;gap:.75rem;padding:0 1rem}
+    .feature{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:1rem;display:flex;align-items:flex-start;gap:.75rem;text-align:left}
+    .feature .emoji{font-size:1.5rem;flex-shrink:0}
+    .feature h3{font-size:.875rem;margin-bottom:.25rem}
+    .feature p{font-size:.75rem;color:#64748b}
+    footer{text-align:center;padding:1.5rem 1rem;color:#475569;font-size:.75rem;border-top:1px solid rgba(255,255,255,.05);margin-top:1.5rem}
+    footer strong{color:#fff}
   </style>
 </head>
 <body>
-  <nav>
-    <a href="https://knuamd.com" class="logo">knuamd</a>
-    <a href="https://knuamd.com" class="back">back</a>
-  </nav>
-  <section class="hero">
-    <div class="badge">Community</div>
-    <h1><span>Community</span></h1>
-    <p>Join our learning community - share knowledge, exchange ideas, grow together!</p>
-    <a href="#community" class="btn">Join Community</a>
-    <div class="features">
-      <div class="feature">
-        <span class="emoji">&#x1F4AC;</span>
-        <h3>Discuss & Share</h3>
-        <p>Talk with fellow learners, share tips and experiences</p>
-      </div>
-      <div class="feature">
-        <span class="emoji">&#x1F31F;</span>
-        <h3>Achievements</h3>
-        <p>Earn badges and recognition for your contributions</p>
-      </div>
-      <div class="feature">
-        <span class="emoji">&#x1F91D;</span>
-        <h3>Connect</h3>
-        <p>Link with all knuamd services in one place</p>
-      </div>
+  <div class="frame">
+    <section class="hero">
+      <div class="badge">🏘️ Community</div>
+      <h1>ชุมชน<span>ผู้เรียน</span></h1>
+      <p class="subtitle">แลกเปลี่ยนความรู้ แบ่งปันประสบการณ์ สร้างชุมชนนักเรียนรู้</p>
+      <a href="#community" class="btn">เข้าชุมชน</a>
+    </section>
+    <div class="features" style="margin-top:1.5rem">
+      <div class="feature"><span class="emoji">💬</span><div><h3>พูดคุยแลกเปลี่ยน</h3><p>ถาม-ตอบ แบ่งปันความรู้กับเพื่อนๆ</p></div></div>
+      <div class="feature"><span class="emoji">📚</span><div><h3>แบ่งปันความรู้</h3><p>เขียนบทความ แชร์ทริคการเรียน</p></div></div>
+      <div class="feature"><span class="emoji">🎉</span><div><h3>กิจกรรมชุมชน</h3><p>Weekly challenges แข่งขันและรับรางวัล</p></div></div>
     </div>
-  </section>
-  <footer>&copy; 2026 <strong>Aeesia</strong>. All rights reserved.</footer>
+    <footer>© 2026 <strong>Aeesia</strong>. All rights reserved.</footer>
+  </div>
+  <div class="bottom-nav"><div class="bottom-nav-inner">
+    <a href="https://knuamd.com" class="nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg><span class="nav-label">Home</span></a>
+    <a href="https://read.knuamd.com" class="nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg><span class="nav-label">Library</span></a>
+    <a href="https://courses.knuamd.com" class="nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg><span class="nav-label">Courses</span></a>
+    <a href="https://games.knuamd.com" class="nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959V6a.75.75 0 01-.75.75H5.625a.75.75 0 00-.75.75v4.5c0 .414.336.75.75.75h10.5a.75.75 0 00.75-.75v-4.5a.75.75 0 00-.75-.75H16.5a.75.75 0 01-.75-.75v-.325z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 15h7.5"/></svg><span class="nav-label">Games</span></a>
+    <a href="https://ai.knuamd.com" class="nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg><span class="nav-label">AI</span></a>
+  </div></div>
 </body>
 </html>
